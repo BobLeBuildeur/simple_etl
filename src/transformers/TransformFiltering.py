@@ -11,8 +11,8 @@ class TransformFiltering(Step):
 		self.value = value
 	
 	def process(self, chain: Chain):
-		data_frame = chain.getDataFrame(self.source)
-		chain.setDataFrame(self.source, TransformFiltering._filter(data_frame, self.label, self.comparison, self.value))
+		data_frame = chain.get_data_frame(self.source)
+		chain.set_data_frame(self.source, TransformFiltering._filter(data_frame, self.label, self.comparison, self.value))
 		
 	@staticmethod
 	def _filter(data_frame: DataFrame, label: str, comparison: str | Comparison, value) -> DataFrame:

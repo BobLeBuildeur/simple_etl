@@ -6,4 +6,4 @@ class LoadExcel(Load):
 		super().__init__(source, uri)
 	
 	def process(self, chain: Chain):
-		chain.getDataFrame(self.source).to_excel(self.uri, index=False)
+		chain.get_data_frame(self.source).to_excel(self.uri, index=False)

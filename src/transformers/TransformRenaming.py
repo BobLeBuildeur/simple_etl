@@ -7,6 +7,6 @@ class TransformRenaming(Step):
 		self.new_label = new_label
 	
 	def process(self, chain: Chain):
-		data_frame = chain.getDataFrame(self.source)
+		data_frame = chain.get_data_frame(self.source)
 		columns = {self.old_label: self.new_label}
-		chain.setDataFrame(self.source, data_frame.rename(columns=columns))
+		chain.set_data_frame(self.source, data_frame.rename(columns=columns))

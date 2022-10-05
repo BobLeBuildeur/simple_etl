@@ -8,7 +8,7 @@ class TransformMatching(Step):
 		self.label = label
 	
 	def process(self, chain: Chain):
-		df_a = chain.getDataFrame(self.source_a)
-		df_b = chain.getDataFrame(self.source_b)
-		chain.setDataFrame(self.source_a, df_a.merge(df_b, on=self.label))
+		df_a = chain.get_data_frame(self.source_a)
+		df_b = chain.get_data_frame(self.source_b)
+		chain.set_data_frame(self.source_a, df_a.merge(df_b, on=self.label))
 

@@ -8,8 +8,8 @@ class TransformFiltering(Step):
 		self.labels = labels
 	
 	def process(self, chain: Chain):
-		data_frame = chain.getDataFrame(self.source)
-		chain.setDataFrame(self.source, data_frame.drop(labels=self.labels, axis=1))
+		data_frame = chain.get_data_frame(self.source)
+		chain.set_data_frame(self.source, data_frame.drop(labels=self.labels, axis=1))
 		
 
 

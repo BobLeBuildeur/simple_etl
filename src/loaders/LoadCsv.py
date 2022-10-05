@@ -6,5 +6,5 @@ class LoadCsv(Load):
 		super().__init__(source, uri)
 	
 	def process(self, chain: Chain):
-		chain.getDataFrame(self.source).to_csv(self.uri, index=False)
+		chain.get_data_frame(self.source).to_csv(self.uri, index=False)
 

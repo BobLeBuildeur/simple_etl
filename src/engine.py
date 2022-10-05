@@ -8,8 +8,8 @@ from src import util
 class Comparison(Enum):
 	GT 	= ">"
 	LT 	= "<"
-	GTE 	= ">="
-	LTE 	= "<="
+	GTE = ">="
+	LTE = "<="
 	EQ 	= "="
 	NEQ	= "<>"
 
@@ -19,13 +19,13 @@ class Chain:
 		self.dataFrames = {}
 		self.steps = []
 		
-	def getDataFrame(self, key: str): 
+	def get_data_frame(self, key: str): 
 		return self.dataFrames[key]
 		
-	def setDataFrame(self, key: str, data: DataFrame):
+	def set_data_frame(self, key: str, data: DataFrame):
 		self.dataFrames[key] = data
 
-	def addStep(self, step):
+	def add_step(self, step):
 		self.steps.append(step)
 	
 	def process(self):
@@ -47,7 +47,7 @@ class Extract(Step):
 	
 	def process(self, chain: Chain):
 		data = self.extract(self.uri)
-		chain.setDataFrame(self.uri, data)
+		chain.set_data_frame(self.uri, data)
 
 	@staticmethod
 	@abstractmethod
