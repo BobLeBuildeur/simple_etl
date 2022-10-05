@@ -4,7 +4,7 @@ A quick domain specific language for ETL transformations
 
 Uses Pandas on the background for a very powerful suite of extractors, transformations and loaders.
 
-QT-based interface to simplyfy life a bit.
+QT-based interface to simplify life a bit.
 
 
 ## For user interface
@@ -14,8 +14,7 @@ QT-based interface to simplyfy life a bit.
 
 ## For cli
 
-`python3 ./cli.py {file with commands}`
-
+`python3 ./cli.py your_file_with_commands.txt`
 
 
 # Language
@@ -43,6 +42,8 @@ transform input.csv by formatting active with checkbox
 
 load input.csv as excel into output.xlsx
 ```
+
+> Note: sources path's are relative
 
 ## Extraction adapters
 
@@ -131,3 +132,22 @@ File needs to have `xslx` extension, otherwise error is thrown
 
 `load {source} as excel into {file}.xlsx`
 
+# Building
+
+**For your target system**
+
+For your target system, simply run pyinstaller pointing to the specfile
+
+`pyinstaller etl.spec`
+
+**Linux and Windows**
+
+> This is broken! Somehow it only works half the time...
+
+You can build binaries for Windows and Linux distributions using pyinstaller
+
+It runs on a virtual machine (using Wine to target Windows).
+
+With docker installed, simply run the build shell script.
+
+`./build.sh`
