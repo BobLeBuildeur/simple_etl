@@ -1,0 +1,29 @@
+// version 1
+
+start: _statement _NL?
+
+_statement: extract+ transform* load+
+
+extract: ("extract"|"e") ADAPTER "from" LOCATION ("as" SOURCE)?
+
+transform: ("transform"|"t") SOURCE "by" TRANSFORMER PARAM (("to" | "by" | "from" | "with")* PARAM)*
+
+load.1: ("load"|"l") SOURCE "as" ADAPTER "into" LOCATION
+
+PARAM: ESCAPED_STRING | NUMBER | SIGNED_NUMBER | MATH
+
+LOCATION: ESCAPED_STRING
+
+SOURCE: LOCATION | WORD
+
+ADAPTER: WORD
+
+TRANSFORMER: WORD
+
+MATH: /[+-\/\*<>\=]/+
+
+%import common (WORD, WS, ESCAPED_STRING, NUMBER, SIGNED_NUMBER)
+%import common.NEWLINE -> _NL
+%import common.SH_COMMENT -> COMMENT
+%ignore COMMENT
+%ignore WS

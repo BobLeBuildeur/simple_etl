@@ -1,0 +1,14 @@
+extractors:
+  csv: extractors.ExtractCsv
+  excel: extractors.ExtractExel
+
+transformers:
+  filtering: transformers.TransformFiltering
+  renaming: transformers.TransformRenaming
+  matching: transformers.TransformMatching
+  formatting: transformers.TransformFormatting
+  dropping: transformers.TransformDropping
+  
+loaders:
+  csv: loaders.LoadCsv
+  excel: loaders.LoadExcel
