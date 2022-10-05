@@ -21,7 +21,7 @@ class AppController(QObject):
 		try:
 			process(dsl_code)
 			self.status="Done"
-		except BaseException as err:
+		except ValueError as err:
 			self.status = str(err)[0:30] + "..."
 			print(str(err))
 	

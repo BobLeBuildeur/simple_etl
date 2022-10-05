@@ -17,7 +17,7 @@ def handle_extract(data):
 	
 	try:
 		return load_step("extractors", adapter)(uri=uri)
-	except:
+	except ValueError:
 		raise ValueError(f"Extract adapater \"{adapter}\" not found")
 
 
@@ -28,7 +28,7 @@ def handle_transform(data):
 
 	try:
 		return load_step("transformers", transformer)(source, *args)
-	except BaseException as err:
+	except ValueError as err:
 		print(err)
 		raise ValueError(f"Transformer \"{transformer}\" not found")
 
@@ -40,7 +40,7 @@ def handle_load(data):
 	
 	try:
 		return load_step('loaders', adapter)(source=source, uri=uri)
-	except:
+	except ValueError:
 		raise ValueError(f"Load adapter \"{adapter}\" not found")
 
 
